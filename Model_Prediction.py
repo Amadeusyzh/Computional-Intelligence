@@ -7,9 +7,9 @@ from sklearn.model_selection import train_test_split
 linear_regression_model = load('linear_regression_model.joblib')
 svm_model = load('svm_model.joblib')
 
-dataset = pd.read_csv("generated_dataset.csv")
+dataset = pd.read_csv("industrial_dataset.csv")
 
-selected_columns = dataset.columns[[1, 3, 4, 7, 42]]  # Adjust indices for zero-based indexing
+selected_columns = dataset.columns[[1, 2, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29, 30, 31, 34, 35, 36, 39, 40, 41, 42, 43, 49]]  # Adjust indices for zero-based indexing
 X_selected = dataset[selected_columns]
 print(X_selected)
 

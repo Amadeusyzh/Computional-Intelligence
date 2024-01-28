@@ -8,7 +8,7 @@ import numpy as np
 dataset = pd.read_csv("industrial_dataset.csv")
 
 # Select the features: 2, 4, 5, 8, 43 (adjusting for zero indexing)
-selected_columns = dataset.columns[[1, 2, 3, 4, 11, 12, 13, 14, 16, 17, 19, 21, 22, 26, 30, 32, 33, 34, 35, 37, 40, 41, 43, 44, 49, 50]]  # Adjust indices for zero-based indexing
+selected_columns = dataset.columns[[1, 2, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29, 30, 31, 34, 35, 36, 39, 40, 41, 42, 43, 49]]  # Adjust indices for zero-based indexing
 X_selected = dataset[selected_columns]
 y = dataset.iloc[:, -1]
 
@@ -21,7 +21,7 @@ linear_model.fit(X_selected, y)
 cv_scores = cross_val_score(linear_model, X_selected, y, cv=5)
 mean_cv_score = np.mean(cv_scores)
 
-print("Mean CV Score:", "0.8951274248")
+print("Mean CV Score:", mean_cv_score)
 
 # Initialize the SVR model
 svr_model = SVR()
@@ -31,7 +31,7 @@ svr_model.fit(X_selected, y)
 cv_scores = cross_val_score(svr_model, X_selected, y, cv=5)
 mean_cv_score = np.mean(cv_scores)
 
-print("Mean CV Score with SVR:", "0.8868274248")
+print("Mean CV Score with SVR:", mean_cv_score)
 
 from joblib import dump
 
